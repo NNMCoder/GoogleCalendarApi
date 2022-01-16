@@ -54,8 +54,10 @@ def main():
         # Отобаражает начало и название 10 будующих событий
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
-
+            # print(start, event['summary'])
+            
+            #! Отображение всех 10 будующих событий в календаре
+            print(start, event)
     except HttpError as error:
         print('An error occurred: %s' % error)
 
