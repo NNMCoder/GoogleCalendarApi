@@ -30,7 +30,7 @@ def main():
         else:
             #! Необходимо указывать абсолютный путь к файлу credentials.json
             flow = InstalledAppFlow.from_client_secrets_file(
-                'E:\Google_CalendarAPI\Ver_2\credentials.json', SCOPES)
+                'E:\Google_CalendarAPI\credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Сохранение учетных данных для следующего запуска
         with open('token.json', 'w') as token:
@@ -54,10 +54,10 @@ def main():
         # Отобаражает начало и название 10 будующих событий
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
-            # print(start, event['summary'])
+            print(start, event['summary'])
             
             #! Отображение всех 10 будующих событий в календаре
-            print(start, event)
+            # print(start, event)
     except HttpError as error:
         print('An error occurred: %s' % error)
 
